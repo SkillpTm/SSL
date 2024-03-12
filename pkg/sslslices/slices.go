@@ -13,3 +13,14 @@ func Contains[T comparable](slice []T, element T) bool {
 
 	return false
 }
+
+// ConvertInterface converts a []interface{} to a slice of any type
+func ConvertInterface[T any](sliceInput []interface{}) []T {
+	newSlice := []T{}
+
+	for _, item := range sliceInput {
+		newSlice = append(newSlice, item.(T))
+	}
+
+	return newSlice
+}
